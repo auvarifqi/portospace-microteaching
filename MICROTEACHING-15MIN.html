@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PriorityLab — 15-Minute Microteaching | PortoSpace STEM</title>
+<style>
+:root{--blue:#4285F4;--red:#EA4335;--yellow:#FBBC04;--green:#34A853;--ink:#14243B;--muted:#65738A;--line:#DFE5EE;--canvas:#F5F8FD;--white:#fff;--softblue:#EAF1FE;--softgreen:#EAF8EF;--softred:#FFF0EE;--softyellow:#FFF8DF}
+*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:Arial,"Helvetica Neue",sans-serif;background:#DCE5F2;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.slide{width:1280px;height:720px;position:relative;overflow:hidden;background:var(--white);padding:49px 68px 47px;margin:24px auto;box-shadow:0 16px 60px rgba(40,57,88,.17);display:none}
+.slide.active{display:block}
+.color-rail{position:absolute;top:0;left:0;width:100%;height:7px;display:flex}.color-rail span{flex:1}.blue{background:var(--blue)}.red{background:var(--red)}.yellow{background:var(--yellow)}.green{background:var(--green)}
+.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;color:#566984;font-size:15px;letter-spacing:.11em;font-weight:800;text-transform:uppercase}
+.wordmark{display:flex;align-items:center;gap:9px}.mini-mark{width:25px;height:25px;border:5px solid var(--blue);border-top-color:var(--red);border-right-color:var(--yellow);border-bottom-color:var(--green);border-radius:50%}
+.pill{border-radius:100px;background:var(--softblue);color:#1D5BC3;font-size:15px;font-weight:700;letter-spacing:0;text-transform:none;padding:9px 16px;display:inline-block}
+.h1{font-size:64px;line-height:1.07;letter-spacing:-2.6px;margin:0 0 17px;font-weight:800}.h2{font-size:43px;line-height:1.12;letter-spacing:-1.4px;margin:0 0 13px;font-weight:800}.lead{font-size:22px;line-height:1.45;color:#4E6179;max-width:1000px;margin:0}.small{font-size:16px;line-height:1.5;color:var(--muted)}.eyebrow{font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.accent-red{color:var(--red)}.accent-blue{color:var(--blue)}.accent-green{color:var(--green)}.accent-yellow{color:#B78600}
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:35px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.four{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:var(--white);border:1px solid var(--line);border-radius:19px;padding:22px;box-shadow:0 8px 28px rgba(28,50,80,.045)}.card p{margin:9px 0 0}.soft{background:var(--canvas)}.note{border-left:5px solid var(--blue);background:var(--softblue);padding:16px 20px;border-radius:0 13px 13px 0;font-size:18px;line-height:1.5}
+.chip{display:inline-flex;align-items:center;border-radius:10px;background:#EDF2FA;padding:9px 13px;font-weight:700;font-size:17px;color:#42536E}.chip.red{background:var(--softred);color:#BE3428}.chip.green{background:var(--softgreen);color:#187B3B}.chip.yellow{background:var(--softyellow);color:#9B7700}.chip.blue{background:var(--softblue);color:#2563CC}
+.footer{position:absolute;bottom:20px;left:68px;right:68px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #E9EEF5;padding-top:12px;color:#8693A7;font-size:13px;font-weight:700}.footer strong{color:#4E6077}.source{position:absolute;left:68px;bottom:57px;font-size:12px;color:#8B96A9}
+.hero-left{padding-top:75px;position:relative;z-index:1}.hero-right{position:relative;padding:45px 0 0}.glow{position:absolute;right:-130px;top:80px;width:630px;height:630px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#E8F0FE 5%,#F8FBFF 60%,transparent 70%);z-index:0}
+.mock-email{border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 48px rgba(41,69,112,.13);background:white;padding:0;overflow:hidden;position:relative;z-index:2;transform:rotate(1.5deg)}.mail-header{padding:16px 19px;background:#F9FBFF;border-bottom:1px solid var(--line);font-size:14px;color:#5C6D83;display:flex;justify-content:space-between}.mail-line{display:flex;align-items:center;gap:13px;padding:18px;border-bottom:1px solid #ECF0F6}.mail-line:last-child{border:0}.mail-avatar{width:37px;height:37px;display:flex;align-items:center;justify-content:center;background:var(--softblue);border-radius:50%;font-weight:800;color:var(--blue)}.mail-body{flex:1}.mail-body b{font-size:16px}.mail-body div{color:#7D8B9D;font-size:13px;margin-top:6px}.flag{width:13px;height:18px;background:var(--yellow);clip-path:polygon(0 0,100% 0,100% 50%,0 100%)}.flag.off{background:#E0E5EE}
+.lifecycle{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}.phase{padding:22px 20px;border-radius:19px;border:1px solid var(--line);height:160px;position:relative;background:white}.phase:nth-child(1){border-top:7px solid var(--blue)}.phase:nth-child(2){border-top:7px solid var(--red)}.phase:nth-child(3){border-top:7px solid var(--yellow)}.phase:nth-child(4){border-top:7px solid var(--green)}.phase:nth-child(5){border-top:7px solid var(--blue)}.phase:nth-child(6){border-top:7px solid var(--red)}.phase .num{font-size:16px;color:#8B99AD;font-weight:800}.phase h3{font-size:24px;margin:10px 0 7px;letter-spacing:-.5px}.phase p{font-size:15px;color:var(--muted);margin:0;line-height:1.35}
+.twocol-list{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:30px}.listrow{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #E8EDF4;font-size:19px;line-height:1.4}.dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:7px}.tag-head{font-size:14px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 9px}
+.metric{padding:22px;background:var(--canvas);border:1px solid var(--line);border-radius:17px;text-align:center}.metric strong{font-size:38px;display:block;letter-spacing:-1px}.metric span{font-size:15px;color:var(--muted)}
+.email-label{display:flex;justify-content:space-between;align-items:center;padding:19px 23px;border-radius:14px;margin-bottom:15px;background:white;border:1px solid var(--line)}.email-label .subject{font-size:21px;font-weight:700}.email-label .sub{font-size:14px;color:#8391A5;margin-top:5px}.email-label .right{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.rulebar{height:7px;border-radius:10px;margin-bottom:8px}.mapping{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:15px}.map-item{border:1px solid var(--line);border-radius:15px;background:white;padding:18px 23px;flex:1;font-size:19px;font-weight:800}.map-arrow{font-size:30px;font-weight:800;color:#A3AFC0}
+.pipeline{display:flex;align-items:stretch;gap:15px;margin:35px 0}.pipe-step{flex:1;text-align:center;border:2px solid var(--line);border-radius:20px;padding:20px 13px;min-height:178px;display:flex;flex-direction:column;align-items:center;justify-content:center}.pipe-step strong{font-size:23px}.pipe-step p{font-size:16px;color:var(--muted);margin:9px 0 0;line-height:1.35}.pipe-arrow{display:flex;align-items:center;font-size:29px;color:#98A7BD}
+.tok{font-family:"Consolas","Courier New",monospace;font-size:30px;letter-spacing:1px;background:var(--softblue);padding:22px;border-radius:15px;display:inline-block;margin:18px 0}.vector{display:flex;gap:11px}.vec-num{font-size:42px;font-weight:800;color:#2864CE;border-radius:17px;background:#EAF1FE;padding:19px 26px;min-width:85px;text-align:center}.vec-label{font-size:16px;color:var(--muted);margin-top:7px;text-align:center}
+.wordtable{width:100%;border-collapse:collapse;font-size:22px}.wordtable th{text-align:center;background:#F2F6FC;color:#50637D;padding:16px 14px;border-bottom:2px solid #E2E9F2}.wordtable th:first-child{text-align:left}.wordtable td{padding:19px 13px;text-align:center;border-bottom:1px solid #E5EAF1;font-weight:800}.wordtable td:first-child{text-align:left;font-size:18px;font-weight:700}.number-bubble{width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:var(--blue);color:white;border-radius:16px;font-weight:800;font-size:31px}
+.flow-node{border:1px solid var(--line);background:white;border-radius:17px;padding:20px;text-align:center}.mono{font-family:"Consolas","Courier New",monospace}.codecard{background:#13243B;color:#E4EBF5;border-radius:18px;padding:20px 24px;font:16px/1.62 "Consolas","Courier New",monospace;white-space:pre-wrap}.json-key{color:#8FC4FF}.json-val{color:#9AE4B5}.json-flag{color:#FFD074}
+.gauge{height:14px;background:#E8EDF5;border-radius:15px;overflow:hidden;margin:12px 0}.gauge-inner{height:100%;border-radius:15px}
+.section-question{font-size:29px;line-height:1.35;font-weight:800;letter-spacing:-.6px}.activity{padding:20px 22px;border-radius:17px;background:#EFF6FF;border:2px solid #CDE1FF}.prompt{font-size:20px;line-height:1.42;font-weight:700;margin:0}
+.bigq{font-size:30px;line-height:1.3;font-weight:800;letter-spacing:-.7px}.narrow{max-width:900px}.callout-dark{background:#142C4B;color:white;padding:24px 29px;border-radius:18px;font-size:21px;line-height:1.5}.callout-dark strong{color:#FCE087}.outline-num{font-size:41px;color:var(--blue);font-weight:800}
+.qbox{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:27px}.quiz-card{padding:22px;border:1px solid #DCE6F4;background:#F9FBFE;border-radius:18px;min-height:155px}.quiz-card .kicker{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--blue)}.quiz-card h3{font-size:22px;line-height:1.35;margin:11px 0 0}
+.kbar{display:flex;gap:8px}.kbar span{height:7px;border-radius:30px;flex:1}
+.speaker-notes{display:none;position:absolute;right:70px;bottom:69px;z-index:6;width:560px;max-height:230px;overflow:auto;background:#122642;color:#fff;border-radius:13px;padding:16px 19px;font-size:15px;line-height:1.4;box-shadow:0 12px 32px rgba(0,0,0,.25)}.show-notes .active .speaker-notes{display:block}.speaker-notes b{color:#FFD86C}
+#controls{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:#102742;color:white;border-radius:999px;padding:10px 17px;font-size:14px;box-shadow:0 7px 26px rgba(0,0,0,.22);z-index:100}#controls button{border:0;background:#2D4B72;color:white;padding:9px 14px;border-radius:20px;font:700 14px Arial;cursor:pointer}#controls button:hover{background:var(--blue)}.dots{letter-spacing:1px;color:#AABDD4}
+@media screen and (max-width:1320px){body{overflow-x:auto}.slide{margin:12px 0}}
+#s2 .lifecycle{margin-top:27px;gap:14px}#s2 .phase{height:143px;padding:18px 20px}#s2 .phase h3{font-size:23px;margin:8px 0 6px}#s2 .note{margin-top:13px!important;padding:11px 16px;font-size:16px}
+#s9 .pipeline{margin:17px 0 15px!important}#s9 .pipe-step{min-height:101px!important;padding:13px 10px}#s9 .codecard{font-size:14px;line-height:1.40;padding:15px 18px}#s9 .note{margin-top:13px!important;padding:10px 16px;font-size:16px}
+#s10 .two{margin-top:26px!important}#s10 .card{padding:17px 20px}#s10 .card h3{font-size:27px!important;margin:7px 0!important}#s10 .card div[style*="font-size:23px"]{font-size:21px!important}#s10 .card p{font-size:17px!important;margin:10px 0}#s10 .callout-dark{margin-top:17px!important;padding:14px 22px;font-size:17px;line-height:1.4}
+@page{size:13.333in 7.5in;margin:0}
+@media print{
+html,body{width:1280px;background:white!important}#controls{display:none!important}.slide,.slide.active{display:block!important;margin:0!important;box-shadow:none!important;page-break-after:always;break-after:page;page-break-inside:avoid;break-inside:avoid}.slide:last-of-type{page-break-after:auto;break-after:auto}.speaker-notes{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<section class="slide active" data-title="Hook" id="s1">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> PRIORITYLAB / STEM MENTORSHIP</div><span class="pill">HOOK</span></div>
+<div class="glow"></div>
+<div class="two" style="grid-template-columns:1.15fr .85fr;gap:44px">
+<div class="hero-left">
+<div class="eyebrow">Data Science × ML Engineering</div>
+<h1 class="h1">Which email<br>actually <span class="accent-blue">matters?</span></h1>
+<p class="lead">How can a simple model flag important emails — and then be used by another application?</p>
+<div style="margin-top:42px"><span class="chip yellow">Question for the student</span><p class="bigq" style="margin-top:17px;max-width:560px">If you can only read <span class="accent-red">one</span> email, which one do you choose?</p></div>
+</div>
+<div class="hero-right"><div class="mock-email"><div class="mail-header"><b>YOUR INBOX</b><span>2 new messages</span></div><div class="mail-line"><div class="mail-avatar">T</div><div class="mail-body"><b>Lab report due tomorrow</b><div>Please submit before 08:00.</div></div><span class="flag"></span></div><div class="mail-line"><div class="mail-avatar" style="background:#FFF4DD;color:#A77800">S</div><div class="mail-body"><b>URGENT: 70% OFF today!</b><div>Biggest sale of the year.</div></div><span class="flag off"></span></div></div><div class="note" style="margin-top:27px"><b>Project goal:</b> learn patterns from text — not memorize the word "urgent".</div></div>
+</div>
+<div class="footer"><span>PORTOSPACE · MICROSIMULATION</span><span>01 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> "We already chose the email priority assistant idea during brainstorming. Looking at these two emails, which would you prioritize? Why?" Wait for the answer. Avoid labeling right/wrong immediately. Ask for one reason.</aside>
+</section>
+
+<section class="slide" data-title="Lifecycle" id="s2">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> THE BIG PICTURE</div><span class="pill">DS LIFECYCLE</span></div>
+<div class="eyebrow">Step zero: understand the process</div><h2 class="h2">Data Science is more than <span class="accent-blue">training a model.</span></h2>
+<p class="lead">We use <b>CRISP-DM</b>: six connected phases until the model is actually usable.</p>
+<div class="lifecycle">
+<div class="phase"><div class="num">01 · ASK</div><h3>Business Understanding</h3><p>What does "important" mean?</p></div>
+<div class="phase"><div class="num">02 · EXPLORE</div><h3>Data Understanding</h3><p>What is in this dataset?</p></div>
+<div class="phase"><div class="num">03 · PREPARE</div><h3>Data Preparation</h3><p>Clean, validate, split.</p></div>
+<div class="phase"><div class="num">04 · LEARN</div><h3>Modeling</h3><p>Learn patterns from labels.</p></div>
+<div class="phase"><div class="num">05 · CHECK</div><h3>Evaluation</h3><p>When and why does it fail?</p></div>
+<div class="phase"><div class="num">06 · USE</div><h3>Deployment</h3><p>Serve the model via an API.</p></div>
+</div>
+<div class="note" style="margin-top:24px">Try pointing: <b>in which phase does the model learn?</b> And <b>in which phase do other apps use it?</b></div>
+<div class="source">Framework: IBM CRISP-DM · https://www.ibm.com/docs/en/spss-modeler/saas?topic=dm-crisp-help-overview</div>
+<div class="footer"><span>BUSINESS → DATA → MODEL → SERVICE</span><span>02 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Ask the student to identify Modeling vs Deployment. Explain that if results are poor, we can return to the data phase. Do not over-explain all six phases.</aside>
+</section>
+
+<section class="slide" data-title="Gmail vs ours" id="s3">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> DOMAIN UNDERSTANDING</div><span class="pill">PROBLEM</span></div>
+<h2 class="h2">Why can Gmail <span class="accent-yellow">mark importance?</span></h2>
+<p class="lead">Google publicly describes some signals. But <b>we do not have user-behavior data</b>.</p>
+<div class="twocol-list">
+<div class="card" style="border-top:7px solid var(--yellow)"><div class="tag-head">Gmail · publicly described signals</div>
+<div class="listrow"><span class="dot" style="background:var(--blue)"></span><span>People you email often</span></div>
+<div class="listrow"><span class="dot" style="background:var(--red)"></span><span>Emails you open or reply to</span></div>
+<div class="listrow"><span class="dot" style="background:var(--yellow)"></span><span>Words in emails you usually read</span></div>
+<div class="listrow" style="border:0"><span class="dot" style="background:var(--green)"></span><span>Star, archive, delete</span></div></div>
+<div class="card" style="border-top:7px solid var(--blue)"><div class="tag-head">PriorityLab · realistic scope</div>
+<div style="padding:19px 3px 13px"><div class="chip blue" style="font-size:22px">SUBJECT + BODY</div><p style="font-size:23px;font-weight:800;margin:22px 0 10px">Text-only importance flag</p><p style="font-size:18px;line-height:1.5;color:var(--muted)">Learns from labeled email examples. No information about the person reading the inbox.</p></div><div class="chip red">Not a replica of Gmail's algorithm</div></div>
+</div>
+<div class="note" style="margin-top:22px"><b>Ask the student:</b> If you only have email text, what information can the model not know?</div>
+<div class="source">Source: Gmail Help — Importance markers · https://support.google.com/mail/answer/186543?hl=en</div>
+<div class="footer"><span>WE MODEL WHAT WE ACTUALLY HAVE</span><span>03 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Google uses many signals, but our model is not Gmail. Check question: "Does the AI know this email is from someone you know well?" Answer: no, because that data is not available.</aside>
+</section>
+
+<section class="slide" data-title="Our dataset" id="s4">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> DATA UNDERSTANDING</div><span class="pill">DATA + LABEL</span></div>
+<h2 class="h2">Choose a dataset, then <span class="accent-blue">define the target.</span></h2>
+<p class="lead">Email Triage Action Seed · 3,905 synthetic English emails. We only use <b>subject + body</b>.</p>
+<div class="four" style="margin-top:25px"><div class="metric"><strong style="color:var(--blue)">3,905</strong><span>Synthetic emails</span></div><div class="metric"><strong style="color:var(--red)">2</strong><span>Input fields</span></div><div class="metric"><strong style="color:#B18400">1</strong><span>Binary target</span></div><div class="metric"><strong style="color:var(--green)">CPU</strong><span>No GPU needed</span></div></div>
+<div class="mapping"><div class="map-item" style="background:var(--softred);border-color:#F5D4CF"><span class="chip red">urgent / high</span><p style="margin:13px 0 0;font-size:22px">Source priority</p></div><span class="map-arrow">→</span><div class="map-item" style="border-color:#CDE6D6;background:var(--softgreen)"><span style="color:#168544">important = 1</span><p style="font-size:15px;color:#597468;margin:11px 0 0">Our derived flag</p></div></div>
+<div class="mapping" style="margin-top:10px"><div class="map-item" style="background:#F0F4FB"><span class="chip blue">medium / low</span><p style="margin:13px 0 0;font-size:22px">Source priority</p></div><span class="map-arrow">→</span><div class="map-item" style="background:#EDF2FA"><span style="color:#315A99">not_important = 0</span><p style="font-size:15px;color:#59718D;margin:11px 0 0">Our derived flag</p></div></div>
+<div class="source">Note: synthetic labels and our mapping are assumptions. Dataset card lists 4 allowed priorities; verify actual classes in EDA. Source: huggingface.co/datasets/weijianzhg/email-triage-action-seed</div>
+<div class="footer"><span>LABEL ≠ UNIVERSAL TRUTH</span><span>04 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Teach features (subject/body) vs label (important). Note for evaluators: original priority is not Gmail importance; the mapping is a project decision. Do not mention accuracy — the model is not trained yet.</aside>
+</section>
+
+<section class="slide" data-title="Core lesson" id="s5">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> FUNDAMENTAL CONCEPT</div><span class="pill">TEACH ONE CONCEPT</span></div>
+<div class="eyebrow">How does AI "read" text?</div><h2 class="h2">Computers need to turn <span class="accent-blue">words → numbers.</span></h2>
+<p class="lead">We start with <b>Bag of Words</b>: count how many times each word appears.</p>
+<div class="two" style="grid-template-columns:1fr 1fr;margin-top:35px;gap:36px">
+<div class="card"><div class="tag-head">Example email</div><div class="tok">"project deadline"</div><p class="small" style="font-size:20px">Our chosen vocabulary:</p><div style="display:flex;gap:9px;margin-top:15px"><span class="chip blue">deadline</span><span class="chip">project</span><span class="chip">sale</span></div></div>
+<div class="card"><div class="tag-head">Vector in order: [deadline, project, sale]</div><div class="vector" style="margin-top:29px"><div><div class="vec-num">1</div><div class="vec-label">deadline</div></div><div><div class="vec-num">1</div><div class="vec-label">project</div></div><div><div class="vec-num" style="background:#FFF1EF;color:var(--red)">0</div><div class="vec-label">sale</div></div></div><p class="small" style="font-size:18px;margin-top:30px">Now the text is numeric data.</p></div>
+</div>
+<div class="note" style="margin-top:27px"><b>Next level:</b> TF-IDF helps weight more informative words/phrases; Logistic Regression learns how those numbers relate to the label. Later we can try denser "meaning vectors" from a pretrained model.</div>
+<div class="footer"><span>CORE IDEA: FEATURES ARE NUMERIC</span><span>05 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> This is the main lesson. Say the vocabulary order slowly. Count words one by one with the student. TF-IDF is intuition only — do not derive formulas for grade 10. Mention embeddings only as a future upgrade if time allows.</aside>
+</section>
+
+<section class="slide" data-title="Student activity" id="s6">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> GUIDED ACTIVITY</div><span class="pill">STUDENT THINKS</span></div>
+<div class="eyebrow">Your turn · about 60 seconds</div><h2 class="h2">Now you are the <span class="accent-green">vectorizer.</span></h2>
+<p class="lead">For vocabulary <b>[deadline, project, sale]</b>, turn the new email into three numbers.</p>
+<div class="activity" style="margin-top:40px"><div class="tag-head">NEW MESSAGE</div><div class="section-question">"Big sale for project supplies"</div></div>
+<div style="display:flex;align-items:center;gap:25px;margin-top:33px"><div class="wordtable" style="flex:1"><table class="wordtable"><thead><tr><th>Feature</th><th>deadline</th><th>project</th><th>sale</th></tr></thead><tbody><tr><td>Word count</td><td>?</td><td>?</td><td>?</td></tr></tbody></table></div><div style="font-size:45px;color:var(--blue)">→</div><div style="padding:22px;background:#F2F7FE;border-radius:17px;font-size:35px;font-weight:800;white-space:nowrap">[ <span class="accent-blue">?</span>, <span class="accent-blue">?</span>, <span class="accent-blue">?</span> ]</div></div>
+<div class="note" style="margin-top:38px"><b>Follow-up:</b> Is word counting alone enough to decide importance? <span style="color:#506179">(Not yet — we still need to learn from labels!)</span></div>
+<div class="footer"><span>DISCOVER · DON'T TELL IMMEDIATELY</span><span>06 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Give the student 20–30 seconds to think. Answer is [0,1,1]. If stuck, point to each word. Do not reveal the answer first. Ask how a vectorizer differs from a classifier.</aside>
+</section>
+
+<section class="slide" data-title="Model and XAI" id="s7">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> MODELING + EXPLAINABILITY</div><span class="pill">CONNECT THE DOTS</span></div>
+<h2 class="h2">From numbers to a <span class="accent-blue">prediction.</span></h2>
+<p class="lead">We use a simple model so the logic can be inspected — not just "because the AI said so".</p>
+<div class="pipeline"><div class="pipe-step" style="background:var(--softblue);border-color:#D4E4FD"><strong>📨 Email text</strong><p>Subject + body</p></div><div class="pipe-arrow">→</div><div class="pipe-step"><strong>🔢 TF-IDF</strong><p>Word/phrase weights</p></div><div class="pipe-arrow">→</div><div class="pipe-step"><strong>⚖️ Logistic Regression</strong><p>Learns weights from labels</p></div><div class="pipe-arrow">→</div><div class="pipe-step" style="background:var(--softgreen);border-color:#D2EAD9"><strong>🏷️ Flag</strong><p>Important / not</p></div></div>
+<div class="three"><div class="card"><div class="tag-head">Train</div><div style="font-size:19px;font-weight:800">Learn from labeled examples</div><p class="small">Done during development.</p></div><div class="card"><div class="tag-head">Predict</div><div style="font-size:19px;font-weight:800">Apply to a new email</div><p class="small">Do not retrain on every request.</p></div><div class="card"><div class="tag-head">Explain</div><div style="font-size:19px;font-weight:800">Inspect word contributions</div><p class="small">Model evidence, not human reasons.</p></div></div>
+<div class="note" style="margin-top:22px"><b>Check:</b> Does TF-IDF decide importance, or does Logistic Regression learn from labels?</div>
+<div class="footer"><span>TRANSPARENT BASELINE · CPU FRIENDLY</span><span>07 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Stress that TF-IDF is not a classifier. Logistic Regression learns the weights. Important features later come from coefficients; word weight is not causal proof. This is still a design — not a trained-model result. Optional: later we can compare a sentence-embedding model.</aside>
+</section>
+
+<section class="slide" data-title="Challenge" id="s8">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> CRITICAL THINKING</div><span class="pill">CHECK UNDERSTANDING</span></div>
+<h2 class="h2">It says <span class="accent-red">URGENT</span> — is it always important?</h2>
+<p class="lead">We will use cases like these to test whether the model learns real patterns or just shortcuts.</p>
+<div style="margin-top:35px"><div class="email-label"><div><div class="subject">URGENT! Huge sale ends tonight 🔥</div><div class="sub">Sender: online store · Discount promotion</div></div><div class="right"><span class="chip red">Urgent-sounding</span></div></div><div class="email-label"><div><div class="subject">Please upload your science report by 08:00</div><div class="sub">Sender: course administration · Real deadline</div></div><div class="right"><span class="chip green">Deadline</span></div></div></div>
+<div class="qbox"><div class="quiz-card"><div class="kicker">Question 01</div><h3>Which one better deserves an important flag? Explain.</h3></div><div class="quiz-card"><div class="kicker">Question 02</div><h3>If the model is wrong, what kinds of examples should we add?</h3></div></div>
+<div class="note" style="margin-top:23px"><b>Main idea:</b> model evaluation must include hard cases — not only an accuracy number.</div>
+<div class="footer"><span>ERROR ANALYSIS IS PART OF SCIENCE</span><span>08 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> These two emails are fictional illustrations, not inference results. Give space for the student to judge. Discuss why keyword shortcuts are dangerous. If the student says promotions can also be important, that is a good discussion: we need a labeling rubric and context.</aside>
+</section>
+
+<section class="slide" data-title="Serving via API" id="s9">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> ML ENGINEERING</div><span class="pill">FUTURE SERVICE</span></div>
+<h2 class="h2">Training is done. <span class="accent-green">Who uses it next?</span></h2>
+<p class="lead">We will save the model and expose it as a <b>REST API</b>, so another app only needs to send JSON.</p>
+<div class="pipeline" style="margin:23px 0 22px"><div class="pipe-step" style="min-height:115px;background:var(--softblue)"><strong>Client app</strong><p>Sends email</p></div><div class="pipe-arrow">→</div><div class="pipe-step" style="min-height:115px"><strong>FastAPI</strong><p>POST /v1/predict</p></div><div class="pipe-arrow">→</div><div class="pipe-step" style="min-height:115px"><strong>Saved model</strong><p>TF-IDF + LogReg</p></div><div class="pipe-arrow">→</div><div class="pipe-step" style="min-height:115px;background:var(--softgreen)"><strong>JSON flag</strong><p>Important / not</p></div></div>
+<div class="two" style="grid-template-columns:1fr 1fr;gap:26px"><div><div class="tag-head">REQUEST · ILLUSTRATIVE</div><div class="codecard">POST /v1/predict
+{
+  <span class="json-key">"subject"</span>: <span class="json-val">"Report due tomorrow"</span>,
+  <span class="json-key">"body"</span>: <span class="json-val">"Submit by 08:00"</span>
+}</div></div><div><div class="tag-head">RESPONSE · ILLUSTRATIVE</div><div class="codecard">{
+  <span class="json-key">"label"</span>: <span class="json-val">"important"</span>,
+  <span class="json-key">"is_important"</span>: <span class="json-flag">true</span>,
+  <span class="json-key">"model_version"</span>: <span class="json-val">"baseline-v1"</span>
+}</div></div></div>
+<div class="note" style="margin-top:23px"><b>Ask:</b> Which part trains the model? Which part only runs prediction? <span style="color:#59718D">This service is still a target architecture — not built yet.</span></div>
+<div class="footer"><span>FROM NOTEBOOK TO A CONSUMABLE SERVICE</span><span>09 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Analogy: the kitchen prepares the model recipe (training); the restaurant takes orders (API/inference). Explain that FastAPI is not the model — it is the doorway to a saved model. Model and API are not implemented yet.</aside>
+</section>
+
+<section class="slide" data-title="Next action" id="s10">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> WRAP-UP + NEXT ACTION</div><span class="pill">YOU TRY</span></div>
+<div class="eyebrow">Before we start coding</div><h2 class="h2">Good AI starts with <span class="accent-blue">clear labels.</span></h2>
+<p class="lead">Today we learned the path: problem → data → numbers → model → API. Here is one task for you to do on your own.</p>
+<div class="two" style="margin-top:35px;grid-template-columns:.95fr 1.05fr"><div class="card" style="background:var(--softblue);border-color:#CFDFF9"><div class="outline-num">01</div><h3 style="font-size:29px;margin:10px 0">Independent task</h3><div style="font-size:23px;line-height:1.45;font-weight:800">Create 10 <span class="accent-blue">fictional</span> emails and label them important / not important.</div><p style="font-size:19px;color:#557092;line-height:1.48">Write your scoring rules and include <b>2 ambiguous examples</b>. No coding required.</p></div><div class="card"><div class="tag-head">Check understanding</div><div style="font-size:22px;line-height:1.5;font-weight:800;padding:11px 0;border-bottom:1px solid #E6ECF4">1. Why must text be turned into numbers?</div><div style="font-size:22px;line-height:1.5;font-weight:800;padding:16px 0;border-bottom:1px solid #E6ECF4">2. Why is the word "urgent" not enough as a rule?</div><div style="font-size:22px;line-height:1.5;font-weight:800;padding:16px 0">3. What is the difference between training and API prediction?</div></div></div>
+<div class="callout-dark" style="margin-top:24px">NEXT SESSION → <strong>Project setup, import the dataset, and explore it in a notebook:</strong> check labels, missing values, duplicates, and distribution charts. <span style="color:#C2D7F0">No notebook or trained model exists yet. TF-IDF first; denser embeddings later.</span></div>
+<div class="footer"><span>PORTOSPACE · BUILD · THINK · EXPLAIN</span><span>10 / 10</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Ask 1–2 understanding checks; do not answer yourself. Give only one reachable homework: 10 fictional emails + rubric. Next session starts Milestone 0: setup → GitHub → import data → EDA.</aside>
+</section>
+
+<div id="controls"><button onclick="go(-1)" aria-label="Previous slide">← Prev</button><span id="pageCounter">1 / 10</span><button onclick="go(1)" aria-label="Next slide">Next →</button><button onclick="document.body.classList.toggle('show-notes')" title="Toggle speaker notes">Notes (N)</button><span class="dots">← → to navigate</span></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let current=0;
+function showSlide(index){current=(index+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===current));document.getElementById('pageCounter').textContent=`${current+1} / ${slides.length}`;history.replaceState(null,'',`#slide-${current+1}`);}
+function go(n){showSlide(current+n)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(1)}else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(-1)}else if(e.key.toLowerCase()==='n'){document.body.classList.toggle('show-notes')} });
+const requested=Number((location.hash.match(/slide-(\d+)/)||[])[1]);if(requested>=1&&requested<=slides.length)showSlide(requested-1);
+</script>
+</body></html>
