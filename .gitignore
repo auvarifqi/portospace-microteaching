@@ -79,6 +79,13 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# PriorityLab local artifacts
+models/
+*.joblib
+.DS_Store
+data/raw/
+huggingface_cache/
+
 # IPython
 profile_default/
 ipython_config.py

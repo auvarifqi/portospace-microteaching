@@ -1,0 +1,3 @@
+# PriorityLab — Milestone 2 extras (install after requirements.txt)
+-r requirements.txt
+sentence-transformers>=3.0.0

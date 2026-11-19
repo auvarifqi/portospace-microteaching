@@ -1,8 +1,8 @@
 # PriorityLab — Explainable Email Importance Classifier
 
 > **A beginner-friendly, CPU-first Data Science × ML Engineering portfolio project**  
-> **Status:** specification + microteaching deck ready; implementation starts at **Milestone 0** (setup → import data → EDA).  
-> **Method:** CRISP-DM · **Audience:** grade-10 STEM mentorship · **Language:** English · **Date:** 18 November 2026
+> **Status:** **M0–M3 code ready** (not executed here) — run EDA → TF-IDF → MiniLM → FastAPI on your machine.  
+> **Method:** CRISP-DM · **Audience:** grade-10 STEM mentorship · **Language:** English · **Updated:** 19 November 2026
 
 **Research question:** *How does Gmail flag important emails, and can we build a transparent, text-only approximation that other applications can consume through an API?*
 
@@ -75,11 +75,11 @@ This mapping is **our modeling assumption**, not a native label in the dataset a
 | Phase | Main question | Output | Status |
 |---|---|---|---|
 | 1. **Business understanding** | What is important? What would success look like? | scope, label rubric, risk and metrics | **Specified** |
-| 2. **Data understanding** | What's in the corpus? How reliable are labels? | EDA charts, distributions, bias audit | **Next (M0)** |
-| 3. **Data preparation** | How to split without leakage? | clean subject+body, dedup, reproducible split | Planned |
-| 4. **Modeling** | Can a simple model learn useful signals? | Dummy → TF-IDF+LogReg (M1); embeddings+LogReg (M2) | Planned |
-| 5. **Evaluation** | When and why does it fail? | confusion matrix, macro F1, important recall, explanations | Planned |
-| 6. **Deployment** | Can another service request a prediction? | saved pipeline + tested FastAPI endpoint | Planned (M3) |
+| 2. **Data understanding** | What's in the corpus? How reliable are labels? | EDA charts, distributions, bias audit | **Notebook ready (M0)** |
+| 3. **Data preparation** | How to split without leakage? | clean subject+body, dedup, reproducible split | **Code ready (M1 helpers)** |
+| 4. **Modeling** | Can a simple model learn useful signals? | Dummy → TF-IDF+LogReg (M1); embeddings+LogReg (M2) | **Code ready (M1–M2)** |
+| 5. **Evaluation** | When and why does it fail? | confusion matrix, macro F1, important recall, explanations | **Code ready (M1)** |
+| 6. **Deployment** | Can another service request a prediction? | saved pipeline + tested FastAPI endpoint | **Code ready (M3)** |
 
 **Fundamental concepts (M1):** labels and features; train vs. test; Bag-of-Words → TF-IDF; linear classifier weights; false positives/false negatives; explainability; training vs. inference; REST API.  
 **Advanced concept (M2):** pretrained sentence encoder → dense meaning vector → linear head (encoder frozen).
@@ -97,17 +97,41 @@ This mapping is **our modeling assumption**, not a native label in the dataset a
 
 ### Immediate next actions (M0)
 
-- [ ] Set up the local project (folder layout, `requirements.txt`, Python env).
+- [x] Project files prepared (`requirements.txt`, notebook, docs).
+- [ ] On your laptop: create venv, install deps, open the EDA notebook.
 - [ ] Create/push a GitHub repository (see learning links below).
-- [ ] Import `weijianzhg/email-triage-action-seed` into a notebook.
-- [ ] Run EDA: schema, priority values, binary mapping, class balance, missingness, duplicates, charts.
+- [ ] Run EDA end-to-end and save charts under `reports/figures/`.
 - [ ] Write a go/no-go note before any model training.
 
-Planned notebook: `notebooks/01_eda_preprocessing.ipynb` (not created yet). Starter cells live in [`INIT-PROJECT.md`](./INIT-PROJECT.md).
+**Setup (run on your machine)**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+jupyter notebook notebooks/01_eda_preprocessing.ipynb   # M0 first
+# after EDA go/no-go:
+jupyter notebook notebooks/02_baseline_tfidf.ipynb      # M1
+pip install -r requirements-m2.txt
+jupyter notebook notebooks/03_embeddings_minilm.ipynb   # M2
+# after M1 model artifact exists:
+uvicorn app.main:app --reload --port 8000               # M3
+```
+
+First runs need internet for the Hugging Face dataset (and MiniLM weights in M2). Do not skip M0 before trusting model scores.
+
+**API smoke (after M1 train + uvicorn)**
+
+```bash
+curl -s http://127.0.0.1:8000/health
+curl -s -X POST http://127.0.0.1:8000/v1/predict \
+  -H 'Content-Type: application/json' \
+  -d '{"subject":"Report due tomorrow","body":"Please submit by 08:00"}'
+```
 
 Visualization palette: Google-inspired **Blue `#4285F4` / Red `#EA4335` / Yellow `#FBBC04` / Green `#34A853`**.
 
-## 6. API contract — proposed, not implemented
+## 6. API contract — implemented in `app/` (needs trained M1 artifact)
 
 ```http
 POST /v1/predict
@@ -142,14 +166,26 @@ PriorityLab/
 ├── README.md                       # Project overview
 ├── MICROTEACHING-15MIN.html        # Editable, browser/print-friendly teaching slides
 ├── MICROTEACHING-15MIN.pdf         # 16:9 PDF generated from the HTML
-├── docs/superpowers/specs/         # Design decisions
-├── notebooks/                      # PLANNED, not created
-│   └── 01_eda_preprocessing.ipynb
-├── src/                            # PLANNED: load, train, evaluate, explain
-├── app/                            # PLANNED: FastAPI service and schemas
-├── tests/                          # PLANNED: training/API smoke tests
-├── models/                         # PLANNED: local model artifacts (gitignored)
-└── reports/                        # PLANNED: figures, metrics, limitations
+├── requirements.txt                # M0/M1 deps
+├── requirements-m2.txt             # adds sentence-transformers
+├── docs/superpowers/               # Design specs + implementation plans
+├── notebooks/
+│   ├── 01_eda_preprocessing.ipynb  # M0 EDA
+│   ├── 02_baseline_tfidf.ipynb     # M1 Dummy + TF-IDF/LogReg
+│   └── 03_embeddings_minilm.ipynb  # M2 frozen MiniLM + LogReg
+├── src/
+│   ├── data.py                     # load, label map, splits
+│   ├── train.py                    # TF-IDF pipelines + joblib save
+│   ├── evaluate.py                 # metrics + confusion matrix
+│   ├── explain.py                  # TF-IDF top terms (model evidence)
+│   ├── embed.py                    # frozen MiniLM encoding + cache
+│   └── train_embeddings.py         # scaler + LogReg on embeddings
+├── reports/figures/                # charts (generated when you run)
+├── models/                         # joblib / embedding cache (gitignored)
+├── app/
+│   ├── main.py                     # FastAPI routes
+│   └── schemas.py                  # Pydantic request/response
+└── tests/                          # API smoke + schema tests
 ```
 
 ## 8. Microteaching — 15 minutes, 1-on-1
@@ -203,13 +239,15 @@ PriorityLab/
 
 - [x] P0 — Finalize **non-personalized, content-only** scope and CRISP-DM plan.
 - [x] P0 — Prepare HTML teaching deck (English) and PDF export path.
-- [ ] **M0** — Project setup + GitHub + import dataset + EDA notebook.
-- [ ] **M0** — Fix the binary labeling rubric; draft a small fictional challenge set.
-- [ ] **M1** — Train Dummy and TF-IDF/LogReg baselines; compare honest held-out metrics.
-- [ ] **M1** — Investigate top words, error cases, and misleading marketing language.
-- [ ] **M2** — Train frozen MiniLM + LogReg; compare against TF-IDF on the same splits.
-- [ ] **M3** — Save reproducible pipeline; implement FastAPI service, tests, curl demo.
-- [ ] **M3** — Record latency, model card, risks, and a portfolio-ready narrative.
+- [x] **M0** — Code prepared: `requirements.txt` + EDA notebook.
+- [ ] **M0** — On your laptop: install deps, push GitHub remote, run EDA, record go/no-go.
+- [ ] **M0** — Draft a small hand-reviewed challenge set (for later evaluation).
+- [x] **M1** — Code prepared: `src/*` + `notebooks/02_baseline_tfidf.ipynb`.
+- [ ] **M1** — On your laptop: run training/eval; save metrics + model; review errors/top terms.
+- [x] **M2** — Code prepared: `embed.py`, `train_embeddings.py`, `03_embeddings_minilm.ipynb`, `requirements-m2.txt`.
+- [ ] **M2** — On your laptop: install M2 deps; run embeddings notebook; compare vs TF-IDF.
+- [x] **M3** — Code prepared: FastAPI `app/`, smoke tests, curl example in README.
+- [ ] **M3** — On your laptop: train M1 → start uvicorn → call `/v1/predict`; optional latency notes.
 
 **Out of scope:** personalization, per-user ranking, behavioral feedback datasets, action recommendation/automation, Gmail API integration, full transformer fine-tuning (unless a future milestone explicitly reopens it), paid infrastructure, production-grade guarantees.
 

@@ -5,8 +5,8 @@
 > **Audience:** grade-10 PortoSpace STEM mentees; beginner-friendly teaching with professional ML Engineering practices  
 > **Method:** CRISP-DM (six iterative phases)  
 > **Language:** English (students, mentor scripts, docs, slides)  
-> **Status:** documentation and teaching deck only. No notebook, training, evaluation, model, or API has been implemented.  
-> **Next milestone:** **M0 — project setup → GitHub → import data → EDA**
+> **Status:** M0–M3 **code prepared** (EDA, TF-IDF, MiniLM embeddings, FastAPI). **Do not assume anything has been executed.** No trained model artifacts committed.  
+> **Next on your machine:** run M0 → M1 → (optional M2) → start `uvicorn app.main:app`
 
 ## 0. MASTER PROMPT — paste this into an AI coding assistant
 
@@ -23,7 +23,7 @@ You are a **senior Data Scientist, pragmatic ML Engineer, and clear STEM mentor*
 7. **Modeling ladder (do not skip fundamentals):**
    - **M1 (required first):** `TfidfVectorizer` + `LogisticRegression`, with `DummyClassifier` baseline and optional `MultinomialNB`.
    - **M2 (later upgrade):** frozen sentence embeddings from `sentence-transformers/all-MiniLM-L6-v2` + `LogisticRegression`, compared on the **same splits** as M1. Do **not** fine-tune the transformer for the educational path. No paid API, no Gmail inbox integration. GPU is optional convenience, not a requirement.
-8. **Do not create `notebooks/01_eda_preprocessing.ipynb` until M0 implementation starts.** Document its plan and sample cells here; create it only when executing M0.
+8. **`notebooks/01_eda_preprocessing.ipynb` is the M0 entrypoint.** Extend it for audits/splits; do not jump to fitting Logistic Regression until the go/no-go cell says proceed.
 9. Don't invent accuracy, F1, latency, importance probability, feature weights, or successful execution. Every simulated/demo value must be labeled *illustrative* until actually measured.
 10. Deliver the full ML system eventually: repeatable training code, saved artifacts, explainability inspection, FastAPI `POST /v1/predict`, `/health`, `/v1/model-info`, Pydantic validation, tests, and an example external client. Never auto-reply, archive, forward or change a Gmail marker.
 11. Use the **Google-inspired color palette** blue `#4285F4`, red `#EA4335`, yellow `#FBBC04`, green `#34A853` in EDA, diagrams and teaching material, with accessible contrast. Do not impersonate Google branding.
@@ -101,9 +101,9 @@ No personalized model, user-specific ranking, user event collection or behavior 
 - [ ] Manually review 5–10 cases per label and document ambiguous examples.
 - [ ] Verify whether the intended binary task is meaningful enough to continue; return to Phase 1 if not.
 
-### Notebook specification — planned for M0
+### Notebook specification — M0
 
-**Path to be created in M0:** `notebooks/01_eda_preprocessing.ipynb`
+**Path:** `notebooks/01_eda_preprocessing.ipynb` (created)
 
 **Proposed notebook sections:**
 
@@ -328,7 +328,7 @@ PriorityLab/
 └── reports/                        # PLANNED — model card and EDA figures
 ```
 
-**Do not create placeholder folders just to simulate completion.** Create the EDA notebook when executing **M0**.
+**Do not create placeholder `src/` / `app/` folders just to simulate completion.** EDA notebook exists; reusable training modules wait until M1.
 
 ---
 
@@ -392,9 +392,11 @@ PriorityLab/
 
 - [x] Problem, objectives, exclusions, data source, label mapping and CRISP-DM stages specified.
 - [x] English teaching deck without minute timings; M0→M2 roadmap and learning links documented.
-- [x] Starter notebook cells documented; notebook **not created**.
-- [x] CPU modeling, evaluation, explainability, FastAPI, and M2 embedding upgrade plans specified.
-- [ ] EDA executed, model trained, API implemented, or latency measured — **none performed yet**.
+- [x] EDA notebook + `requirements.txt` prepared for local run.
+- [x] M1 `src/` + `02_baseline_tfidf.ipynb` prepared (Dummy + TF-IDF/LogReg + explain).
+- [x] M2 frozen MiniLM path prepared (`embed.py`, `train_embeddings.py`, `03_embeddings_minilm.ipynb`).
+- [x] M3 FastAPI (`app/main.py`, schemas, smoke tests) prepared.
+- [ ] EDA executed; models trained; API served with live metrics — **run on your machine**.
 
 ---
 
