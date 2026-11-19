@@ -339,25 +339,31 @@ PriorityLab/
 | Block | What you say/show | Student must do |
 |---|---|---|
 | **Hook** | "We agreed to make an AI that highlights important emails. Which message needs attention?" | Choose an email and give a reason |
-| **Lifecycle** | **DS lifecycle / CRISP-DM**: question → data → prep → model → evaluate → deploy | Identify where the algorithm learns and where users access it |
-| **Domain** | **Domain:** Gmail public signals; our dataset has only subject/body/priority, so we build generic flags | Name a signal we deliberately cannot model |
-| **Core lesson** | **Core lesson:** Bag-of-Words vocabulary `deadline / project / sale`, then TF-IDF intuition | Convert one short message to `[count, count, count]` |
-| **Challenge** | **Critical thinking:** Why `URGENT SALE` can fool keyword-only rules | Explain ambiguity and make a better example |
-| **Future** | **End-to-end destination:** saved ML pipeline → FastAPI → another app; show proposed JSON | Identify input, output and who calls the service |
-| **Wrap-up** | Quick understanding checks and assignment | Explain how the computer gets numbers; agree on 10 labeled fake messages |
+| **Lifecycle** | CRISP-DM: question → data → prep → model → evaluate → deploy | See where the algorithm learns vs. where apps use it |
+| **Roadmap** | Milestones M0→M3 (setup/EDA → TF-IDF → embeddings → API) | Know we start with setup, not training |
+| **Domain** | Gmail public signals; our dataset has only subject/body/priority | Notice a signal we cannot model |
+| **BoW** | Vocabulary `deadline / project / sale` → count vectors | Convert one short message to `[count, count, count]` |
+| **TF-IDF** | BoW counts → TF-IDF weights → Logistic Regression learns labels | State the role of each step |
+| **Challenge** | Why `URGENT SALE` can fool keyword-only rules | Explain the ambiguity |
+| **Wrap-up** | M0 setup guide: GitHub, env, import data, EDA | Agree on next build steps + README learning links |
 
 ### Mentor prompts and fallback explanations
 
 **Opening:** "We already chose the inbox-assistant project yesterday. If you had 100 emails, which ones would you read first?"  
 **Lifecycle checkpoint:** "When does the model *learn*, and when is the model *used*?"  
+**Roadmap checkpoint:** "What do we do before training any model?" (Setup + import + EDA.)  
 **Domain checkpoint:** "If we only give the AI the text, does it know this email is from a close friend?" (No; sender relationship is not a feature.)  
-**Core teaching:** "Computers cannot count words the way humans do out of the box. We turn the sentence into numbers first."  
+**Core teaching:** "Computers cannot read words directly. Bag of Words turns text into counts. TF-IDF reweights those counts so common words matter less. Logistic Regression then learns from labels."  
 **Student exercise:** `"Project deadline" → [1,1,0]` for `[deadline,project,sale]` (order as stated).  
 **Challenge:** "If the subject is 'URGENT SALE', is it always important? Why or why not?"  
 **Misconception response:** If they confuse TF-IDF with choosing importance, explain that TF-IDF encodes text; **the classifier** learns the mapping from features to labels.  
-**Future peek (optional, short):** "Later we can try a bigger pretrained model that turns a whole sentence into a meaning vector — after we finish the TF-IDF baseline."
+**Future peek (optional, short):** "Later (M2) we can try a bigger pretrained model that turns a whole sentence into a meaning vector — after the TF-IDF baseline."
 
-**Homework — one independently doable next step:** create **10 completely fictional email subjects**, label important/not-important based on a short rubric (deadline/impact required; generic promotions not automatically important), include **2 ambiguous cases**, explain each decision in one sentence. No notebook or hardware needed.
+**Next step — Milestone 0 project setup (no fictional-email homework):**  
+1. Create/push a GitHub repository (Medium + GitHub Docs links in §10).  
+2. Create a Python venv and install core packages (`pandas`, `datasets`, `matplotlib`, `scikit-learn`, `jupyter`).  
+3. Import `weijianzhg/email-triage-action-seed` and convert to pandas.  
+4. Start the EDA notebook: schema, priority distribution, binary mapping, missingness, duplicates, charts.
 
 ---
 
@@ -366,7 +372,7 @@ PriorityLab/
 | Priority | Item | Deliverable | Acceptance evidence |
 |---|---|---|---|
 | **P0** | Confirm non-personalized scope and binary label mapping | `INIT-PROJECT.md`, `README.md` | No user-specific features or training goals |
-| **P0** | Make teaching deck and rehearse 15-minute flow | HTML (+ PDF re-export) | Slides include lifecycle → domain → one taught concept → API → homework; English; no minute pills |
+| **P0** | Make teaching deck and rehearse 15-minute flow | HTML (+ PDF re-export) | Slides include lifecycle → milestones → BoW → TF-IDF → setup guide; English; no minute pills; PDF regenerated after HTML |
 | **M0** | Project setup + GitHub remote | repo layout, env, remote URL | Local project linked to GitHub following learning refs |
 | **M0** | Import dataset + EDA notebook | `01_eda_preprocessing.ipynb` | Actual class counts, missingness, duplicates and risks shown |
 | **M0** | Formalize rubric & challenge examples | rubric + 20–40 fake labeled emails | Reviewed independently of model training |

@@ -154,19 +154,19 @@ PriorityLab/
 
 ## 8. Microteaching — 15 minutes, 1-on-1
 
-**Teaching order:** motivation → **Data Science lifecycle (CRISP-DM)** → email domain → one fundamental concept (**text → numbers**) → tiny student activity → model + explainability → API future → homework.
+**Teaching order:** motivation → CRISP-DM → **project milestones (M0–M3)** → email domain → Bag of Words → practice vector → **TF-IDF + LogReg roles** → hard cases → **M0 project setup guide**.
 
 | Block | Mentor activity | Student participation |
 |---|---|---|
 | Hook | Pick which of 2 emails deserves attention | Choose + explain |
-| Lifecycle | Explain CRISP-DM | Identify when train vs. deploy happens |
-| Domain | Explain Gmail signals vs. our text-only dataset | Identify a missing signal |
-| Core lesson | Teach Bag-of-Words → TF-IDF intuition | Build a 3-number word-count vector |
-| Challenge | Challenge the keyword shortcut: `URGENT SALE` | Predict likely failure |
-| Future | Show what a trained model/API will do | Name client, server, input, output |
-| Wrap-up | Check understanding and give one task | Label 10 *fictional* emails |
+| Lifecycle | Explain CRISP-DM | See train vs. deploy |
+| Roadmap | Show M0→M3 milestones | Know what comes first |
+| Domain | Gmail signals vs. text-only scope | Notice missing signals |
+| BoW → TF-IDF | Counts, then weighted counts, then classifier | Build a BoW vector |
+| Challenge | `URGENT SALE` vs real deadline | Spot keyword traps |
+| Wrap-up | Walk M0 setup steps + learning links | Start GitHub / env / import / EDA |
 
-**Student next step:** create a two-rule labeling rubric and label 10 imaginary email subjects (`important` or `not_important`) with brief justifications, including at least two tricky marketing/deadline cases. No code or private email required.
+**Student next step:** follow Milestone 0 — create/push the GitHub repo, set up a Python env, import the Hugging Face dataset, and begin EDA. Learning links are in §9 below.
 
 ## 9. Learning references
 
