@@ -33,12 +33,16 @@
 .qbox{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:27px}.quiz-card{padding:22px;border:1px solid #DCE6F4;background:#F9FBFE;border-radius:18px;min-height:155px}.quiz-card .kicker{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--blue)}.quiz-card h3{font-size:22px;line-height:1.35;margin:11px 0 0}
 .milestone{border:1px solid var(--line);border-radius:18px;padding:20px 18px;background:white;min-height:210px;position:relative}.milestone .mnum{font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8B99AD;margin-bottom:8px}.milestone h3{font-size:24px;margin:0 0 10px;letter-spacing:-.4px}.milestone p{font-size:16px;line-height:1.4;color:var(--muted);margin:0}.milestone .learn{margin-top:14px;font-size:15px;font-weight:700;color:#315A99}.milestone.now{border-color:#B7D0FB;background:var(--softblue)}.milestone.now .mnum{color:var(--blue)}
 .setup-step{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #E6ECF4}.setup-step:last-child{border-bottom:0}.setup-num{width:36px;height:36px;border-radius:10px;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}.setup-step b{font-size:20px;display:block}.setup-step span{font-size:16px;color:var(--muted);line-height:1.4}
+a.link{color:#1D5BC3;text-decoration:underline;font-weight:700}a.link:hover{color:var(--blue)}.link-row{font-size:15px;line-height:1.45;font-weight:700;padding:9px 0;border-bottom:1px solid #D7E4F7}.link-row:last-of-type{border-bottom:0}.link-row .url{display:block;font-size:11px;font-weight:600;color:#6B7C94;margin-top:3px;word-break:break-all;text-decoration:none}
 .speaker-notes{display:none;position:absolute;right:70px;bottom:69px;z-index:6;width:560px;max-height:230px;overflow:auto;background:#122642;color:#fff;border-radius:13px;padding:16px 19px;font-size:15px;line-height:1.4;box-shadow:0 12px 32px rgba(0,0,0,.25)}.show-notes .active .speaker-notes{display:block}.speaker-notes b{color:#FFD86C}
 #controls{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:#102742;color:white;border-radius:999px;padding:10px 17px;font-size:14px;box-shadow:0 7px 26px rgba(0,0,0,.22);z-index:100}#controls button{border:0;background:#2D4B72;color:white;padding:9px 14px;border-radius:20px;font:700 14px Arial;cursor:pointer}#controls button:hover{background:var(--blue)}.dots{letter-spacing:1px;color:#AABDD4}
 @media screen and (max-width:1320px){body{overflow-x:auto}.slide{margin:12px 0}}
 #s2 .lifecycle{margin-top:27px;gap:14px}#s2 .phase{height:143px;padding:18px 20px}#s2 .phase h3{font-size:23px;margin:8px 0 6px}
-#s8 .pipeline{margin:18px 0 14px!important}#s8 .pipe-step{min-height:112px;padding:14px 10px}#s8 .pipe-step strong{font-size:20px}#s8 .pipe-step p{font-size:14px}
-#s10 .setup-step{padding:11px 0}#s10 .setup-step b{font-size:18px}#s10 .setup-step span{font-size:15px}#s10 .callout-dark{margin-top:14px!important;padding:14px 22px;font-size:17px;line-height:1.4}
+#s8 .wordtable{font-size:18px}#s8 .wordtable th,#s8 .wordtable td{padding:12px 10px}
+#s9 .pipeline{margin:16px 0 12px!important}#s9 .pipe-step{min-height:98px;padding:12px 8px}#s9 .pipe-step strong{font-size:18px}#s9 .pipe-step p{font-size:13px}
+#s11 .setup-step{padding:11px 0}#s11 .setup-step b{font-size:18px}#s11 .setup-step span{font-size:15px}#s11 .callout-dark{margin-top:14px!important;padding:14px 22px;font-size:17px;line-height:1.4}
+.formula{font-family:"Consolas","Courier New",monospace;background:#13243B;color:#E4EBF5;border-radius:14px;padding:14px 18px;font-size:18px;line-height:1.45;display:inline-block}
+.formula .hl{color:#FFD074}.wbar{height:12px;border-radius:8px;background:#E8EDF5;overflow:hidden;margin-top:8px}.wbar span{display:block;height:100%;border-radius:8px}
 @page{size:13.333in 7.5in;margin:0}
 @media print{
 html,body{width:1280px;background:white!important}#controls{display:none!important}.slide,.slide.active{display:block!important;margin:0!important;box-shadow:none!important;page-break-after:always;break-after:page;page-break-inside:avoid;break-inside:avoid}.slide:last-of-type{page-break-after:auto;break-after:auto}.speaker-notes{display:none!important}
@@ -60,7 +64,7 @@ html,body{width:1280px;background:white!important}#controls{display:none!importa
 </div>
 <div class="hero-right"><div class="mock-email"><div class="mail-header"><b>YOUR INBOX</b><span>2 new messages</span></div><div class="mail-line"><div class="mail-avatar">T</div><div class="mail-body"><b>Lab report due tomorrow</b><div>Please submit before 08:00.</div></div><span class="flag"></span></div><div class="mail-line"><div class="mail-avatar" style="background:#FFF4DD;color:#A77800">S</div><div class="mail-body"><b>URGENT: 70% OFF today!</b><div>Biggest sale of the year.</div></div><span class="flag off"></span></div></div><div class="note" style="margin-top:27px"><b>Project goal:</b> learn patterns from text — not memorize the word "urgent".</div></div>
 </div>
-<div class="footer"><span>PORTOSPACE · MICROSIMULATION</span><span>01 / 10</span></div>
+<div class="footer"><span>PORTOSPACE · MICROSIMULATION</span><span>01 / 11</span></div>
 <aside class="speaker-notes"><b>Mentor:</b> Ask which email they would prioritize and why. Wait for one reason before moving on.</aside>
 </section>
 
@@ -79,7 +83,7 @@ html,body{width:1280px;background:white!important}#controls{display:none!importa
 </div>
 <div class="note" style="margin-top:24px"><b>Key idea:</b> the model <b>learns</b> in Modeling; other apps <b>use</b> it in Deployment. If results are weak, we return to data.</div>
 <div class="source">Framework: IBM CRISP-DM · https://www.ibm.com/docs/en/spss-modeler/saas?topic=dm-crisp-help-overview</div>
-<div class="footer"><span>BUSINESS → DATA → MODEL → SERVICE</span><span>02 / 10</span></div>
+<div class="footer"><span>BUSINESS → DATA → MODEL → SERVICE</span><span>02 / 11</span></div>
 <aside class="speaker-notes"><b>Mentor:</b> Point to Modeling vs Deployment. Keep this brief — the next slide shows the project roadmap.</aside>
 </section>
 
@@ -95,7 +99,7 @@ html,body{width:1280px;background:white!important}#controls{display:none!importa
 <div class="milestone"><div class="mnum">M3 · Serve</div><h3>FastAPI service</h3><p>Save the pipeline and let another app call <span class="mono">POST /v1/predict</span>.</p><div class="learn">Learn: training vs inference</div></div>
 </div>
 <div class="note" style="margin-top:22px"><b>Today's focus:</b> understand the path. Next build step is <b>M0</b> — not training yet.</div>
-<div class="footer"><span>SETUP → CLASSICAL ML → EMBEDDINGS → API</span><span>03 / 10</span></div>
+<div class="footer"><span>SETUP → CLASSICAL ML → EMBEDDINGS → API</span><span>03 / 11</span></div>
 <aside class="speaker-notes"><b>Mentor:</b> Emphasize M0 and M1 first. M2 is the "bigger model" later. M3 is serving. Do not dig into MiniLM details today.</aside>
 </section>
 
@@ -115,7 +119,7 @@ html,body{width:1280px;background:white!important}#controls{display:none!importa
 </div>
 <div class="note" style="margin-top:22px"><b>Scope reminder:</b> with only email text, the model cannot know sender relationships or personal habits.</div>
 <div class="source">Source: Gmail Help — Importance markers · https://support.google.com/mail/answer/186543?hl=en</div>
-<div class="footer"><span>WE MODEL WHAT WE ACTUALLY HAVE</span><span>04 / 10</span></div>
+<div class="footer"><span>WE MODEL WHAT WE ACTUALLY HAVE</span><span>04 / 11</span></div>
 <aside class="speaker-notes"><b>Mentor:</b> Our model is not Gmail. Sender closeness is unavailable — that is intentional scope, not a missing bug.</aside>
 </section>
 
@@ -128,7 +132,7 @@ html,body{width:1280px;background:white!important}#controls{display:none!importa
 <div class="mapping"><div class="map-item" style="background:var(--softred);border-color:#F5D4CF"><span class="chip red">urgent / high</span><p style="margin:13px 0 0;font-size:22px">Source priority</p></div><span class="map-arrow">→</span><div class="map-item" style="border-color:#CDE6D6;background:var(--softgreen)"><span style="color:#168544">important = 1</span><p style="font-size:15px;color:#597468;margin:11px 0 0">Our derived flag</p></div></div>
 <div class="mapping" style="margin-top:10px"><div class="map-item" style="background:#F0F4FB"><span class="chip blue">medium / low</span><p style="margin:13px 0 0;font-size:22px">Source priority</p></div><span class="map-arrow">→</span><div class="map-item" style="background:#EDF2FA"><span style="color:#315A99">not_important = 0</span><p style="font-size:15px;color:#59718D;margin:11px 0 0">Our derived flag</p></div></div>
 <div class="source">Note: synthetic labels and our mapping are assumptions. Verify actual classes in EDA. Source: huggingface.co/datasets/weijianzhg/email-triage-action-seed</div>
-<div class="footer"><span>LABEL ≠ UNIVERSAL TRUTH</span><span>05 / 10</span></div>
+<div class="footer"><span>LABEL ≠ UNIVERSAL TRUTH</span><span>05 / 11</span></div>
 <aside class="speaker-notes"><b>Mentor:</b> Features = subject/body. Label = important. Mapping is a project decision, not Gmail truth.</aside>
 </section>
 
@@ -142,7 +146,7 @@ html,body{width:1280px;background:white!important}#controls{display:none!importa
 <div class="card"><div class="tag-head">Count vector: [deadline, project, sale]</div><div class="vector" style="margin-top:29px"><div><div class="vec-num">1</div><div class="vec-label">deadline</div></div><div><div class="vec-num">1</div><div class="vec-label">project</div></div><div><div class="vec-num" style="background:#FFF1EF;color:var(--red)">0</div><div class="vec-label">sale</div></div></div><p class="small" style="font-size:18px;margin-top:30px">BoW answer: plain word counts.</p></div>
 </div>
 <div class="note" style="margin-top:27px"><b>Why start here:</b> a classifier cannot read English directly. BoW is the simplest way to make text numeric. TF-IDF comes next as an upgrade to those counts.</div>
-<div class="footer"><span>CORE IDEA: COUNTS ARE FEATURES</span><span>06 / 10</span></div>
+<div class="footer"><span>CORE IDEA: COUNTS ARE FEATURES</span><span>06 / 11</span></div>
 <aside class="speaker-notes"><b>Mentor:</b> Count slowly with the student. Say that TF-IDF is the next slide — same idea, smarter weights.</aside>
 </section>
 
@@ -154,39 +158,81 @@ html,body{width:1280px;background:white!important}#controls{display:none!importa
 <div class="activity" style="margin-top:32px"><div class="tag-head">NEW MESSAGE</div><div class="section-question">"Big sale for project supplies"</div></div>
 <div style="display:flex;align-items:center;gap:25px;margin-top:28px"><div class="wordtable" style="flex:1"><table class="wordtable"><thead><tr><th>Feature</th><th>deadline</th><th>project</th><th>sale</th></tr></thead><tbody><tr><td>Word count</td><td>0</td><td>1</td><td>1</td></tr></tbody></table></div><div style="font-size:45px;color:var(--blue)">→</div><div style="padding:22px;background:#F2F7FE;border-radius:17px;font-size:35px;font-weight:800;white-space:nowrap">[ <span class="accent-blue">0</span>, <span class="accent-blue">1</span>, <span class="accent-blue">1</span> ]</div></div>
 <div class="note" style="margin-top:28px"><b>Bridge to TF-IDF:</b> raw counts treat every word equally. In a real inbox, words like "the" or "sale" may appear everywhere — so we need smarter weights.</div>
-<div class="footer"><span>SAME VOCABULARY · NUMERIC VECTOR</span><span>07 / 10</span></div>
+<div class="footer"><span>SAME VOCABULARY · NUMERIC VECTOR</span><span>07 / 11</span></div>
 <aside class="speaker-notes"><b>Mentor:</b> Let them try first, then reveal [0,1,1]. Use the note to introduce why TF-IDF exists.</aside>
 </section>
 
 <section class="slide" data-title="TF-IDF" id="s8">
 <div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
 <div class="topline"><div class="wordmark"><div class="mini-mark"></div> FUNDAMENTAL CONCEPT</div><span class="pill">TF-IDF</span></div>
-<div class="eyebrow">Bag of Words → smarter weights</div><h2 class="h2">TF-IDF upgrades <span class="accent-blue">counts into weights.</span></h2>
-<p class="lead"><b>TF</b> = how often a word appears in <i>this</i> email. <b>IDF</b> = how rare that word is across many emails. Multiply them → distinctive words get higher scores.</p>
-<div class="three" style="margin-top:18px">
-<div class="card" style="border-top:6px solid var(--blue)"><div class="tag-head">Bag of Words</div><div style="font-size:22px;font-weight:800;margin-top:8px">Raw counts</div><p class="small">"sale" = 1, "deadline" = 1 — same importance in the vector.</p></div>
-<div class="card" style="border-top:6px solid var(--yellow)"><div class="tag-head">TF-IDF</div><div style="font-size:22px;font-weight:800;margin-top:8px">Weighted counts</div><p class="small">Common words shrink; rare, informative words grow.</p></div>
-<div class="card" style="border-top:6px solid var(--green)"><div class="tag-head">Logistic Regression</div><div style="font-size:22px;font-weight:800;margin-top:8px">Learns the decision</div><p class="small">Uses those weights + labels to predict important / not.</p></div>
+<div class="eyebrow">How TF-IDF works</div><h2 class="h2">TF-IDF = <span class="accent-blue">Term Frequency</span> × <span class="accent-yellow">Inverse Document Frequency.</span></h2>
+<p class="lead"><b>TF-IDF</b> stands for <b>Term Frequency–Inverse Document Frequency</b>. Start from Bag of Words, then reweight each word so common words shrink and distinctive words stand out.</p>
+<div class="two" style="margin-top:14px;grid-template-columns:1fr 1.15fr;gap:28px">
+<div>
+<div class="card" style="padding:16px 18px;margin-bottom:12px;border-top:6px solid var(--blue)"><div class="tag-head">TF = Term Frequency</div><div style="font-size:20px;font-weight:800;margin-top:6px">How often the <span class="accent-blue">term</span> appears in <span class="accent-blue">this</span> email</div><p class="small" style="font-size:15px"><b>Term</b> = a word (or short phrase). If "deadline" appears twice in one short email, its Term Frequency is high for that email.</p></div>
+<div class="card" style="padding:16px 18px;margin-bottom:12px;border-top:6px solid var(--yellow)"><div class="tag-head">IDF = Inverse Document Frequency</div><div style="font-size:20px;font-weight:800;margin-top:6px">How rare the term is across <span class="accent-yellow">many documents</span></div><p class="small" style="font-size:15px"><b>Document</b> = one email. <b>Inverse</b> = rare terms score higher. "the"/"sale" in many emails → low IDF. "deadline" in few emails → high IDF.</p></div>
+<div class="formula">TF-IDF(<span class="hl">word</span>) = Term Frequency × Inverse Document Frequency</div>
 </div>
-<div class="pipeline" style="margin:22px 0 12px"><div class="pipe-step" style="background:var(--softblue);border-color:#D4E4FD"><strong>Email text</strong><p>Subject + body</p></div><div class="pipe-arrow">→</div><div class="pipe-step"><strong>BoW</strong><p>Count words</p></div><div class="pipe-arrow">→</div><div class="pipe-step"><strong>TF-IDF</strong><p>Reweight words</p></div><div class="pipe-arrow">→</div><div class="pipe-step"><strong>LogReg</strong><p>Predict flag</p></div></div>
-<div class="note"><b>Roles:</b> BoW/TF-IDF turn text into numbers. <b>Logistic Regression</b> is the classifier that learns from labels. This is Milestone 1.</div>
-<div class="footer"><span>M1 METHOD · TRANSPARENT · CPU FRIENDLY</span><span>08 / 10</span></div>
-<aside class="speaker-notes"><b>Mentor:</b> Do not write formulas. Analogy: TF = "how much in this email"; IDF = "how special across emails". Classifier ≠ vectorizer.</aside>
+<div class="card" style="padding:18px 20px">
+<div class="tag-head">Illustrative example · email: "project deadline"</div>
+<table class="wordtable" style="margin-top:8px"><thead><tr><th>Word</th><th>BoW</th><th>TF<br><span style="font-weight:600;font-size:12px;color:#8B99AD">Term Freq.</span></th><th>IDF<br><span style="font-weight:600;font-size:12px;color:#8B99AD">Inv. Doc. Freq.</span></th><th>TF-IDF</th></tr></thead><tbody>
+<tr><td>deadline</td><td>1</td><td>present</td><td>rare ↑</td><td style="color:#168544">higher</td></tr>
+<tr><td>project</td><td>1</td><td>present</td><td>medium</td><td style="color:#2864CE">medium</td></tr>
+<tr><td>sale</td><td>0</td><td>absent</td><td>common ↓</td><td style="color:var(--red)">0</td></tr>
+</tbody></table>
+<p class="small" style="margin-top:12px;font-size:14px">Illustrative only — not trained output. In code, <b>scikit-learn</b> computes TF-IDF inside a Pipeline.</p>
+<div class="note" style="margin-top:12px;font-size:15px;padding:11px 14px"><b>Key point:</b> TF-IDF does <b>not</b> decide important vs not. It only builds a smarter numeric vector for Logistic Regression.</div>
+</div>
+</div>
+<div class="footer"><span>BoW → TF-IDF · FEATURE ENGINEERING</span><span>08 / 11</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Walk TF then IDF then multiply. Stress: TF-IDF is representation, not the classifier. Skip heavy math; the table is illustrative.</aside>
 </section>
 
-<section class="slide" data-title="Challenge" id="s9">
+<section class="slide" data-title="Logistic Regression" id="s9">
+<div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+<div class="topline"><div class="wordmark"><div class="mini-mark"></div> FUNDAMENTAL CONCEPT</div><span class="pill">LOGISTIC REGRESSION</span></div>
+<div class="eyebrow">How the classifier learns</div><h2 class="h2">LogReg turns weights into an <span class="accent-green">important / not</span> flag.</h2>
+<p class="lead">Each TF-IDF word feature gets a learned coefficient. Positive push toward <b>important</b>; negative push toward <b>not important</b>.</p>
+<div class="two" style="margin-top:14px;grid-template-columns:1.05fr .95fr;gap:26px">
+<div>
+<div class="card" style="padding:16px 18px;margin-bottom:12px">
+<div class="tag-head">Step-by-step</div>
+<div class="setup-step" style="padding:10px 0"><div class="setup-num" style="width:30px;height:30px;font-size:14px">1</div><div><b>Receive TF-IDF vector</b><span>Example features: deadline, project, sale, …</span></div></div>
+<div class="setup-step" style="padding:10px 0"><div class="setup-num" style="width:30px;height:30px;font-size:14px">2</div><div><b>Multiply each feature × learned weight</b><span>Training adjusts those weights using labeled emails.</span></div></div>
+<div class="setup-step" style="padding:10px 0"><div class="setup-num" style="width:30px;height:30px;font-size:14px">3</div><div><b>Sum → score → probability</b><span>A sigmoid maps the score to a value between 0 and 1.</span></div></div>
+<div class="setup-step" style="padding:10px 0;border:0"><div class="setup-num" style="width:30px;height:30px;font-size:14px">4</div><div><b>Threshold → final label</b><span>e.g. if probability ≥ 0.5 → important, else not_important.</span></div></div>
+</div>
+<div class="formula" style="font-size:16px;width:100%;box-sizing:border-box">score = w₁x₁ + w₂x₂ + … + bias<br>P(important) = sigmoid(score)</div>
+</div>
+<div>
+<div class="card" style="padding:16px 18px;margin-bottom:12px;border-top:6px solid var(--green)">
+<div class="tag-head">Illustrative word weights</div>
+<div style="margin-top:10px"><div style="display:flex;justify-content:space-between;font-weight:800"><span>deadline</span><span style="color:#168544">+ strong</span></div><div class="wbar"><span style="width:88%;background:var(--green)"></span></div></div>
+<div style="margin-top:14px"><div style="display:flex;justify-content:space-between;font-weight:800"><span>submit / report</span><span style="color:#2864CE">+ medium</span></div><div class="wbar"><span style="width:62%;background:var(--blue)"></span></div></div>
+<div style="margin-top:14px"><div style="display:flex;justify-content:space-between;font-weight:800"><span>sale / discount</span><span style="color:var(--red)">− push down</span></div><div class="wbar"><span style="width:55%;background:var(--red)"></span></div></div>
+<p class="small" style="margin-top:14px;font-size:14px">Bars are teaching sketches — not real coefficients until we train the model.</p>
+</div>
+<div class="note" style="font-size:16px;padding:12px 16px"><b>Train vs predict:</b> training learns the weights from labeled data. Prediction applies the fixed weights to a new email. We can later inspect top words as <b>model evidence</b>.</div>
+</div>
+</div>
+<div class="pipeline"><div class="pipe-step" style="background:var(--softblue);border-color:#D4E4FD"><strong>Email</strong><p>Subject + body</p></div><div class="pipe-arrow">→</div><div class="pipe-step"><strong>TF-IDF</strong><p>Numeric features</p></div><div class="pipe-arrow">→</div><div class="pipe-step"><strong>LogReg</strong><p>Weighted sum</p></div><div class="pipe-arrow">→</div><div class="pipe-step" style="background:var(--softgreen);border-color:#D2EAD9"><strong>Flag</strong><p>Important / not</p></div></div>
+<div class="footer"><span>M1 CLASSIFIER · EXPLAINABLE LINEAR MODEL</span><span>09 / 11</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Emphasize: TF-IDF builds x; LogReg learns w. Positive/negative weights are intuition. Do not claim real coefficients yet.</aside>
+</section>
+
+<section class="slide" data-title="Challenge" id="s10">
 <div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
 <div class="topline"><div class="wordmark"><div class="mini-mark"></div> CRITICAL THINKING</div><span class="pill">HARD CASES</span></div>
 <h2 class="h2">It says <span class="accent-red">URGENT</span> — is it always important?</h2>
-<p class="lead">Word features help, but keywords alone can still fool a model. Evaluation needs hard examples.</p>
+<p class="lead">Even with TF-IDF + LogReg, keyword shortcuts can still fail. Evaluation needs hard examples.</p>
 <div style="margin-top:35px"><div class="email-label"><div><div class="subject">URGENT! Huge sale ends tonight 🔥</div><div class="sub">Sender: online store · Discount promotion</div></div><div class="right"><span class="chip red">Urgent-sounding</span></div></div><div class="email-label"><div><div class="subject">Please upload your science report by 08:00</div><div class="sub">Sender: course administration · Real deadline</div></div><div class="right"><span class="chip green">Deadline</span></div></div></div>
 <div class="qbox"><div class="quiz-card"><div class="kicker">Case A</div><h3>Looks urgent, may be marketing noise.</h3></div><div class="quiz-card"><div class="kicker">Case B</div><h3>Quiet wording, real deadline impact.</h3></div></div>
 <div class="note" style="margin-top:23px"><b>Main idea:</b> during evaluation we test tricky cases — not only overall accuracy.</div>
-<div class="footer"><span>ERROR ANALYSIS IS PART OF SCIENCE</span><span>09 / 10</span></div>
-<aside class="speaker-notes"><b>Mentor:</b> Discuss why keyword shortcuts fail. This motivates careful EDA and a challenge set later — not a fictional homework tonight.</aside>
+<div class="footer"><span>ERROR ANALYSIS IS PART OF SCIENCE</span><span>10 / 11</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Connect back: a high weight on "urgent" can misfire. That is why hard-case evaluation matters.</aside>
 </section>
 
-<section class="slide" data-title="Project setup" id="s10">
+<section class="slide" data-title="Project setup" id="s11">
 <div class="color-rail"><span class="blue"></span><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
 <div class="topline"><div class="wordmark"><div class="mini-mark"></div> NEXT ACTION · M0</div><span class="pill">PROJECT SETUP</span></div>
 <div class="eyebrow">What to do next</div><h2 class="h2">Start with <span class="accent-blue">setup + data.</span></h2>
@@ -200,18 +246,19 @@ html,body{width:1280px;background:white!important}#controls{display:none!importa
 </div>
 <div>
 <div class="card" style="background:var(--softblue);border-color:#CFDFF9;min-height:100%">
-<div class="tag-head">Learning links</div>
-<div style="font-size:17px;line-height:1.55;font-weight:700;padding:8px 0;border-bottom:1px solid #D7E4F7">GitHub setup (Medium)</div>
-<div style="font-size:17px;line-height:1.55;font-weight:700;padding:12px 0;border-bottom:1px solid #D7E4F7">HF Datasets + Pandas</div>
-<div style="font-size:17px;line-height:1.55;font-weight:700;padding:12px 0;border-bottom:1px solid #D7E4F7">CRISP-DM overview</div>
-<div style="font-size:17px;line-height:1.55;font-weight:700;padding:12px 0">TF-IDF intuition (for M1)</div>
-<p class="small" style="margin-top:14px;font-size:15px">Full URLs are listed in <b>README.md</b> → Learning references.</p>
+<div class="tag-head">Learning links · clickable</div>
+<div class="link-row"><a class="link" href="https://medium.com/@ebayeeligbe/how-to-create-a-github-account-and-install-git-on-your-pc-a8b0150b659b">GitHub setup (Medium)</a><a class="url" href="https://medium.com/@ebayeeligbe/how-to-create-a-github-account-and-install-git-on-your-pc-a8b0150b659b">medium.com/.../github-account-and-install-git</a></div>
+<div class="link-row"><a class="link" href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github">Add local code to GitHub</a><a class="url" href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github">docs.github.com/.../adding-locally-hosted-code</a></div>
+<div class="link-row"><a class="link" href="https://huggingface.co/docs/datasets/loading">Load HF datasets</a><a class="url" href="https://huggingface.co/docs/datasets/loading">huggingface.co/docs/datasets/loading</a></div>
+<div class="link-row"><a class="link" href="https://investigate.ai/text-analysis/a-simple-explanation-of-tf-idf/">TF-IDF explanation</a><a class="url" href="https://investigate.ai/text-analysis/a-simple-explanation-of-tf-idf/">investigate.ai/.../tf-idf</a></div>
+<div class="link-row"><a class="link" href="https://rays-python-machine-learning.netlify.app/nlp_text_preprocessing">TF-IDF + LogReg pipeline</a><a class="url" href="https://rays-python-machine-learning.netlify.app/nlp_text_preprocessing">rays-python-machine-learning.netlify.app</a></div>
+<p class="small" style="margin-top:10px;font-size:13px">More links in <b>README.md</b> → Learning references.</p>
 </div>
 </div>
 </div>
-<div class="callout-dark">NEXT BUILD → <strong>Milestone 0:</strong> setup → GitHub → import data → EDA. <span style="color:#C2D7F0">Train TF-IDF only after the data audit looks healthy.</span></div>
-<div class="footer"><span>PORTOSPACE · BUILD · THINK · EXPLAIN</span><span>10 / 10</span></div>
-<aside class="speaker-notes"><b>Mentor:</b> Walk the four setup steps. Point them to README learning links. No fictional-email homework. Next session: create the EDA notebook.</aside>
+<div class="callout-dark">NEXT BUILD → <strong>Milestone 0:</strong> setup → GitHub → import data → EDA. <span style="color:#C2D7F0">Train TF-IDF + LogReg only after the data audit looks healthy.</span></div>
+<div class="footer"><span>PORTOSPACE · BUILD · THINK · EXPLAIN</span><span>11 / 11</span></div>
+<aside class="speaker-notes"><b>Mentor:</b> Walk the four setup steps. Point them to README learning links. Next session: create the EDA notebook.</aside>
 </section>
 
 <div id="controls"><button onclick="go(-1)" aria-label="Previous slide">← Prev</button><span id="pageCounter">1 / 10</span><button onclick="go(1)" aria-label="Next slide">Next →</button><button onclick="document.body.classList.toggle('show-notes')" title="Toggle speaker notes">Notes (N)</button><span class="dots">← → to navigate</span></div>

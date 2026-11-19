@@ -154,7 +154,7 @@ PriorityLab/
 
 ## 8. Microteaching — 15 minutes, 1-on-1
 
-**Teaching order:** motivation → CRISP-DM → **project milestones (M0–M3)** → email domain → Bag of Words → practice vector → **TF-IDF + LogReg roles** → hard cases → **M0 project setup guide**.
+**Teaching order:** motivation → CRISP-DM → **milestones (M0–M3)** → email domain → Bag of Words → practice → **TF-IDF (TF × IDF)** → **Logistic Regression steps** → hard cases → **M0 setup guide**.
 
 | Block | Mentor activity | Student participation |
 |---|---|---|
@@ -162,7 +162,8 @@ PriorityLab/
 | Lifecycle | Explain CRISP-DM | See train vs. deploy |
 | Roadmap | Show M0→M3 milestones | Know what comes first |
 | Domain | Gmail signals vs. text-only scope | Notice missing signals |
-| BoW → TF-IDF | Counts, then weighted counts, then classifier | Build a BoW vector |
+| BoW → TF-IDF | Counts, then TF × IDF weighting | Build a BoW vector |
+| LogReg | Feature × weight → score → probability → label | Separate vectorizer vs classifier |
 | Challenge | `URGENT SALE` vs real deadline | Spot keyword traps |
 | Wrap-up | Walk M0 setup steps + learning links | Start GitHub / env / import / EDA |
 

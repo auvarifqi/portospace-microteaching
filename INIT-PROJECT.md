@@ -343,7 +343,8 @@ PriorityLab/
 | **Roadmap** | Milestones M0→M3 (setup/EDA → TF-IDF → embeddings → API) | Know we start with setup, not training |
 | **Domain** | Gmail public signals; our dataset has only subject/body/priority | Notice a signal we cannot model |
 | **BoW** | Vocabulary `deadline / project / sale` → count vectors | Convert one short message to `[count, count, count]` |
-| **TF-IDF** | BoW counts → TF-IDF weights → Logistic Regression learns labels | State the role of each step |
+| **TF-IDF** | TF = in-email frequency; IDF = rarity across emails; TF-IDF = TF × IDF | Compare BoW vs TF-IDF on one example |
+| **LogReg** | Feature × learned weight → score → sigmoid → label; train vs predict | Name what TF-IDF does vs what LogReg learns |
 | **Challenge** | Why `URGENT SALE` can fool keyword-only rules | Explain the ambiguity |
 | **Wrap-up** | M0 setup guide: GitHub, env, import data, EDA | Agree on next build steps + README learning links |
 
